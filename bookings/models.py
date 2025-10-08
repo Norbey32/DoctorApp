@@ -4,12 +4,8 @@ from patients.models import Patient
 
 
 class Appointment(models.Model):
-    patient = models.ForeignKey(
-        Patient, related_name='appointments', on_delete=models.CASCADE
-    )
-    doctor = models.ForeignKey(
-        Doctor, related_name='appointments', on_delete=models.CASCADE
-    )
+    patient = models.ForeignKey(Patient, related_name='appointments', on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, related_name='appointments', on_delete=models.CASCADE)
     appointment_date = models.DateField()
     appointment_time = models.TimeField()
     notes = models.TextField()
