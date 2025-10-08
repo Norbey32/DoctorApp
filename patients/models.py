@@ -12,18 +12,14 @@ class Patient(models.Model):
 
 
 class Insurance(models.Model):
-    patient = models.ForeignKey(
-        Patient, related_name='insurances', on_delete=models.CASCADE
-    )
+    patient = models.ForeignKey(Patient, related_name='insurances', on_delete=models.CASCADE)
     provider = models.CharField(max_length=100)
     policy_number = models.CharField(max_length=100)
     expiration_date = models.DateField()
 
 
 class MedicalRecord(models.Model):
-    patient = models.ForeignKey(
-        Patient, related_name='medical_records', on_delete=models.CASCADE
-    )
+    patient = models.ForeignKey(Patient, related_name='medical_records', on_delete=models.CASCADE)
     date = models.DateField()
     diagnosis = models.TextField()
     treatment = models.TextField()
