@@ -13,8 +13,6 @@ class Appointment(models.Model):
 
 
 class MedicalNote(models.Model):
-    appointment = models.ForeignKey(
-        Appointment, related_name='medical_notes', on_delete=models.CASCADE
-    )
+    appointment = models.ForeignKey(Appointment, related_name='medical_notes', on_delete=models.CASCADE)
     note = models.TextField()
     date = models.DateField()
