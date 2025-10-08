@@ -17,9 +17,7 @@ class Department(models.Model):
 
 
 class DoctorAvailability(models.Model):
-    doctor = models.ForeignKey(
-        Doctor, related_name='availabilities', on_delete=models.CASCADE
-    )
+    doctor = models.ForeignKey(Doctor, related_name='availabilities', on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField()
     start_time = models.TimeField()
@@ -27,8 +25,6 @@ class DoctorAvailability(models.Model):
 
 
 class MedicalNote(models.Model):
-    doctor = models.ForeignKey(
-        Doctor, related_name='medical_notes', on_delete=models.CASCADE
-    )
+    doctor = models.ForeignKey(Doctor, related_name='medical_notes', on_delete=models.CASCADE)
     note = models.TextField()
     date = models.DateField()
