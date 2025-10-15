@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import list_bookings, detail_bookings, list_medical_note, detail_medical_note
+from rest_framework.routers import DefaultRouter
+from .viewsets import BookingsViewSets, MedicalNoteViewSets
 
-urlpatterns = [
-    path('bookings/', list_bookings),
-    path('bookings/<int:pk>/', detail_bookings),
-    path('medical-note/', list_medical_note),
-    path('medical-note/<int:pk>/', detail_medical_note),
 
-]
+router = DefaultRouter()
+router.register('bookings', BookingsViewSets)
+router.register('medical-note', MedicalNoteViewSets)
+
+urlpatterns = router.urls
