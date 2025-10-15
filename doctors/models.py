@@ -9,6 +9,7 @@ class Doctor(models.Model):
     email = models.EmailField()
     address = models.TextField()
     biography = models.TextField()
+    is_on_vacations = models.BooleanField(default=False)
 
 
 class Department(models.Model):
